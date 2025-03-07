@@ -5,8 +5,7 @@ public class Main {
     public static void main(String[] args) {
         // Crear una nueva agenda.
         Agenda agendaContactos= new Agenda();
-
-        //Iniciamos la agenda de contactos.
+        //Inicia la agenda.
         initAgenda(agendaContactos);
 
         // Imprimir todos los contactos de la agenda.
@@ -29,10 +28,12 @@ public class Main {
             System.out.println(c.getName() + " -> " + c.getPhones());
         }
     }
-    private static void initAgenda(Agenda agendaContactos){
+
+    private static void initAgenda(Agenda agendaContactos) {
         // Añadir contactos a la agenda.
         agendaContactos.addContact("John Doe", "1234567890");
         agendaContactos.addContact("Jane Doe", "9876543210");
         agendaContactos.addContact("Mary Jane", "1122334455");
     }
+
 }
