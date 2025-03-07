@@ -8,12 +8,12 @@ import java.util.List;
  * @version 1.0
  * Clase para gestionar una agenda de contactos.
  * Pueden agregarse, eliminarse y modificarse los telefonos de los contactos
- * @see Contacto
+ * @see Persona
  * @see Main
  */
 
 public class Agenda {
-    private List<Contacto> contacts; // Lista de Contacto
+    private List<Persona> contacts; // Lista de Persona
 
     /**
      * Constructor que inicializa la lista de contactos vacia.
@@ -30,7 +30,7 @@ public class Agenda {
      */
     public void addContact(String name, String phone) {
         boolean exists = false; // Variable para comprobar la existencia del contacto
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) { // Comprueba si el nombre del contacto existe
                 exists = true;
                 c.getPhones().add(phone); // Añade el número de teléfono
@@ -39,7 +39,7 @@ public class Agenda {
         }
 
         if (!exists) { // Si el contacto no existe
-            Contacto newContact = new Contacto(name, phone); // Crea un nuevo contacto
+            Persona newContact = new Persona(name, phone); // Crea un nuevo contacto
             contacts.add(newContact); // Añade el contacto
         }
     }
@@ -49,10 +49,10 @@ public class Agenda {
      * @param name Nombre del contacto
      */
     public void removeContact(String name) {
-        Iterator<Contacto> it = contacts.iterator(); //Recorre la lista de contactos
+        Iterator<Persona> it = contacts.iterator(); //Recorre la lista de contactos
 
         while (it.hasNext()) { // Bucle para iterar sobre los contactos
-            Contacto c = it.next(); // Obtiene el siguiente contacto
+            Persona c = it.next(); // Obtiene el siguiente contacto
 
             if (c.getName().equalsIgnoreCase(name)) { //Encuentra el contacto
                 it.remove(); //Elimina el contato de la lista
@@ -67,7 +67,7 @@ public class Agenda {
      * @param newPhone El nuevo número de teléfono
      */
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
-        for (Contacto c : contacts) { //Comprueba la lista de contactos
+        for (Persona c : contacts) { //Comprueba la lista de contactos
             if (c.getName().equalsIgnoreCase(name)) { //Encuentra un contacto con el mismo nombre
                 List<String> phones = c.getPhones(); // Obtiene la lista de los teléfonos del contacto
 
@@ -84,7 +84,7 @@ public class Agenda {
      * Obtiene la lista de los cntactos de la agenda
      * @return Devuelve la lista de los objeto contacto
      */
-    public List<Contacto> getContacts() {
+    public List<Persona> getContacts() {
         return this.contacts;
     }
 }

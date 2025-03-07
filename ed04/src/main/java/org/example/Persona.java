@@ -10,16 +10,16 @@ import java.util.List;
  * @see Agenda
  * @see Main
  */
-class Contacto {
+class Persona {
     private String name;
     private List<String> phones;
 
     /**
-     * Constructor de Contacto.
+     * Constructor de Persona.
      * @param name Nombre del contacto
      * @param phone Número de teléfono
      */
-    public Contacto(String name, String phone) {
+    public Persona(String name, String phone) {
         this.setName(name);
         this.setPhones(new ArrayList<>());
         this.getPhones().add(phone);
