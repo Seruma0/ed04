@@ -12,7 +12,7 @@ import java.util.List;
  * @see Main
  */
 
-public class Agenda {
+public class Agenda implements AgendaInterface {
     private List<Persona> contacts; // Lista de Persona
 
     /**
@@ -28,6 +28,7 @@ public class Agenda {
      * @param name Nombre del contacto
      * @param phone Teléfono del contacto
      */
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false; // Variable para comprobar la existencia del contacto
         for (Persona c : contacts) {
@@ -48,6 +49,7 @@ public class Agenda {
      * Elimina un contacto existente de la agenda.
      * @param name Nombre del contacto
      */
+    @Override
     public void removeContact(String name) {
         Iterator<Persona> it = contacts.iterator(); //Recorre la lista de contactos
 
@@ -66,6 +68,7 @@ public class Agenda {
      * @param oldPhone El número de teléfono que queremos modificar
      * @param newPhone El nuevo número de teléfono
      */
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Persona c : contacts) { //Comprueba la lista de contactos
             if (c.getName().equalsIgnoreCase(name)) { //Encuentra un contacto con el mismo nombre
@@ -84,6 +87,7 @@ public class Agenda {
      * Obtiene la lista de los cntactos de la agenda
      * @return Devuelve la lista de los objeto contacto
      */
+    @Override
     public List<Persona> getContacts() {
         return this.contacts;
     }
